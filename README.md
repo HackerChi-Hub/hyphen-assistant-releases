@@ -2,7 +2,7 @@
 
 **手机连接电脑上的 AI。** 电脑运行 DeepSeek Harness 原任务，手机浏览器进入同一工作区，查看会话并继续发送要求。
 
-黑粉科技制作的独立辅助工具，当前为 **0.1.1 预览版**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
+黑粉科技制作的独立辅助工具，当前为 **0.1.2 预览版**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
 
 ## 近期新增与改进
 
@@ -18,21 +18,30 @@
 
 | 系统 | 安装方式 | 下载 |
 |---|---|---|
-| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.1-macos-arm64.dmg) |
-| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.1-windows-x64-setup.exe) |
-| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.1-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.1-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.1-linux-x64.rpm) |
+| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.2-macos-arm64.dmg) |
+| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.2-windows-x64-setup.exe) |
+| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.2-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.2-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.2-linux-x64.rpm) |
 
 安装件尚未完成 Apple 公证或 Windows 商业代码签名。Mac首次打开受阻时，在系统设置的“隐私与安全性”中核实来源后选择仍要打开；Windows出现SmartScreen提示时核实发行来源，再按“更多信息”继续。更新包的数字签名用于校验更新完整性，不等同于操作系统发行证书。
 
 ## 实际界面
 
-以下为0.1.1预览版Mac实际安装界面，未展示私人配对码。
+以下为0.1.2预览版Mac实际安装界面，未展示私人配对码。
 
 ![黑粉助手连接中心](screenshots/connection.png)
 
-![黑粉助手实际连接检查](screenshots/diagnosis.png)
+![端口映射设置示例，示例地址未保存](screenshots/network.png)
 
 ![匿名统计设置](screenshots/privacy.png)
+
+## 两种连接方式
+
+| 方式 | 使用方法 | 用户需要准备 |
+|---|---|---|
+| 临时链接 | 启动后自动生成地址，再扫码配对 | 网络能访问内置通道服务 |
+| 端口映射 | 将公网TCP端口映射到应用显示的本机地址及端口 | 公网可达条件、路由器映射、访问域名及HTTPS证书 |
+
+端口映射方式通过受配对保护的HTTPS入口访问dsh；模型接口密钥仍由原Harness管理。域名可使用现有动态解析服务维护，树莓派是可选的部署设备。公网端口与本机端口可以不同，界面会显示映射关系。
 
 ## 第一次使用
 
@@ -45,7 +54,7 @@
 
 ## 网络与费用边界
 
-内置临时通道由 Cloudflare 转发，网页内容经过该服务，需要网络可达，没有持续可用保证，重新创建后地址变化。第三方通道不支持的传输方式可能影响特定功能，真实消息和长任务恢复须实际核实。长期使用可改为自己的固定域名、证书、HTTPS代理或私有通道。应用不自动修改路由器与防火墙。
+内置临时通道由 Cloudflare 转发，网页内容经过该服务，需要网络可达，没有持续可用保证，重新创建后地址变化。第三方通道不支持的传输方式可能影响特定功能，真实消息和长任务恢复须实际核实。端口映射方式需要用户准备访问地址和HTTPS证书，并让路由器将公网TCP端口映射到本机指定地址及端口。域名解析、动态域名维护、端口映射和证书续期由用户管理，应用不会自动配置树莓派、路由器或防火墙。导入的证书保存为应用私有副本，不自动继承旧服务的续期链路。
 
 工具不包含模型权重、供应商额度、域名或第三方付费服务。模型请求的费用与数据流向继续由原 Harness 配置决定。电脑、Harness、所用模型服务及网络须保持在线。
 
@@ -61,7 +70,7 @@
 
 **打开了但没有原会话？** 检查原 Harness 是否在线、配置是否选对、连接器是否加载，进入检查页查看原会话认证。
 
-**临时连接失败？** 检查网络可达性，稍后重试或改用固定入口。不要关闭来源校验、证书校验或配对保护。
+**临时连接失败？** 检查网络可达性，稍后重试或改用端口映射。不要关闭来源校验、证书校验或配对保护。
 
 **配对失效？** 使用最新生成的完整链接，在十分钟内兑换；每个浏览器分别配对。网关重启后需要重新配对。
 

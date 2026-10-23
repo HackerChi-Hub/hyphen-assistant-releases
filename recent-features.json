@@ -1,17 +1,17 @@
 {
-  "reviewed_version": "0.1.1",
+  "reviewed_version": "0.1.2",
   "features": [
     {
-      "title": "精简连接界面",
-      "description": "连接、扫码与状态优先。"
+      "title": "仅保留两种连接方式",
+      "description": "临时链接与端口映射，移除单独的已有代理选项。"
     },
     {
       "title": "修复确认断开",
       "description": "取消和确认按钮保持可用，更新确认文案独立。"
     },
     {
-      "title": "保留入口设置",
-      "description": "回读已保存地址，已导入证书可继续沿用。"
+      "title": "显示端口映射关系",
+      "description": "外网TCP端口对应本机地址及监听端口，路由器由用户设置。"
     },
     {
       "title": "匿名使用统计",
