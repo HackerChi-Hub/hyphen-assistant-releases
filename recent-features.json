@@ -1,0 +1,25 @@
+{
+  "reviewed_version": "0.1.1",
+  "features": [
+    {
+      "title": "精简连接界面",
+      "description": "连接、扫码与状态优先。"
+    },
+    {
+      "title": "修复确认断开",
+      "description": "取消和确认按钮保持可用，更新确认文案独立。"
+    },
+    {
+      "title": "保留入口设置",
+      "description": "回读已保存地址，已导入证书可继续沿用。"
+    },
+    {
+      "title": "匿名使用统计",
+      "description": "按日去重、升级即时更新，可关闭。"
+    },
+    {
+      "title": "官网和自愿赞助",
+      "description": "侧栏展示官网和支持开发入口。"
+    }
+  ]
+}
