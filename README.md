@@ -16,13 +16,13 @@
 
 通过[发行页](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)选择对应系统的安装包，并核对同名 `.sha256` 文件。没有附件的平台暂不提供下载，不使用源码压缩包代替安装包。
 
-| 系统 | 安装方式 |
-|---|---|
-| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 |
-| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 |
-| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统 |
+| 系统 | 安装方式 | 下载 |
+|---|---|---|
+| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.0-macos-arm64.dmg) |
+| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.0-windows-x64-setup.exe) |
+| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.0-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.0-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.0-linux-x64.rpm) |
 
-安装件尚未完成 Apple 公证或 Windows 商业代码签名，首次启动按系统提示核实来源。更新包的数字签名用于校验更新完整性，不等同于操作系统发行证书。
+安装件尚未完成 Apple 公证或 Windows 商业代码签名。Mac首次打开受阻时，在系统设置的“隐私与安全性”中核实来源后选择仍要打开；Windows出现SmartScreen提示时核实发行来源，再按“更多信息”继续。更新包的数字签名用于校验更新完整性，不等同于操作系统发行证书。
 
 ## 实际界面
 
@@ -62,6 +62,14 @@
 **配对失效？** 使用最新生成的完整链接，在十分钟内兑换；每个浏览器分别配对。网关重启后需要重新配对。
 
 **手机切网和长任务是否都可靠？** 以当前发行说明列出的实际验收为准，一次页面打开不代表所有场景均已通过。
+
+## 已核实的验收范围
+
+- Mac：从DMG安装，原生界面、内置后端、真实Harness认证、临时通道HTTPS配对、原网页、原会话目录和实时握手通过。
+- Windows：原生23项检查、中文EXE安装、安装后内置后端及应用启动检查通过。
+- Linux：原生23项检查、AppImage解包后的内置后端及虚拟桌面启动检查通过；同时提供deb和rpm。
+- 三个平台的安装件都有SHA-256；更新包另有独立数字签名。Mac和Linux AppImage支持对应的签名更新包，deb/rpm使用新版安装包更新。
+- 真实手机切网、真实任务工具批准和长任务恢复仍待专项验收；隔离启动检查不等同于真机持续使用。
 
 ## 相关资源
 
