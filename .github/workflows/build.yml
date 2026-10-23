@@ -1,0 +1,49 @@
+name: 三平台安装包
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-14
+            platform: macos-arm64
+          - os: windows-latest
+            platform: windows-x64
+          - os: ubuntu-22.04
+            platform: linux-x64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: HackerChi-Hub/hyphen-assistant
+          ssh-key: ${{ secrets.SOURCE_READ_KEY }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+      - name: Linux 系统构建依赖
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev librsvg2-dev libayatana-appindicator3-dev patchelf
+      - run: npm ci
+      - run: npm test
+      - run: npm run bundle:runtime
+      - name: 生成应用图标
+        run: npx tauri icon assets/icon.svg
+      - name: 构建原生安装包
+        run: npx tauri build --config '{"bundle":{"createUpdaterArtifacts":false}}'
+        env:
+          NO_STRIP: true
+      - name: 生成校验及构建出处
+        run: node scripts/collect-artifacts.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyphen-assistant-${{ matrix.platform }}
+          path: artifacts/
+          retention-days: 14
