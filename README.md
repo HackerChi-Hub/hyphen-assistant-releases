@@ -2,7 +2,7 @@
 
 **手机连接电脑上的 AI。** 电脑运行 DeepSeek Harness 原任务，手机浏览器进入同一工作区，查看会话并继续发送要求。
 
-黑粉科技制作的独立辅助工具，当前为 **0.1.4 预览版**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
+黑粉科技制作的独立辅助工具，当前为 **0.1.5 预览版**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
 
 ## 近期新增与改进
 
@@ -13,7 +13,7 @@
 - 证书在应用外配置：开放端口只提供 HTTP 服务，继续保留配对认证。
 - 本机动态域名：替代另一台设备更新阿里云 A 记录，不接管路由器和证书。
 - 匿名使用统计：按日去重，支持在检查页的“提升使用体验”偏好中关闭，不采集会话和配对资料。
-- 首页赞助入口：在连接状态区明确展示赞助提示与按钮，侧栏继续保留官网和支持入口。
+- 首页赞助入口：在连接状态区明确展示赞助提示与按钮，侧栏仅保留本机保存提示、版本及官网，避免重复展示赞助。
 
 ## 下载与安装
 
@@ -21,15 +21,15 @@
 
 | 系统 | 安装方式 | 下载 |
 |---|---|---|
-| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.4-macos-arm64.dmg) |
-| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.4-windows-x64-setup.exe) |
-| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.4-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.4-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.4-linux-x64.rpm) |
+| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.5-macos-arm64.dmg) |
+| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.5-windows-x64-setup.exe) |
+| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.5-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.5-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.5-linux-x64.rpm) |
 
 安装件尚未完成 Apple 公证或 Windows 商业代码签名。Mac首次打开受阻时，在系统设置的“隐私与安全性”中核实来源后选择仍要打开；Windows出现SmartScreen提示时核实发行来源，再按“更多信息”继续。更新包的数字签名用于校验更新完整性，不等同于操作系统发行证书。
 
 ## 实际界面
 
-以下为0.1.4预览版Mac实际安装界面，未展示私人配对码。
+以下为Mac实际安装界面，连接中心及密钥提示已更新至0.1.5。域名示例未保存，未展示私人配对码。
 
 ![黑粉助手连接中心](screenshots/connection.png)
 
