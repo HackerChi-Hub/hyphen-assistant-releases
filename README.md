@@ -2,17 +2,18 @@
 
 **手机连接电脑上的 AI。** 电脑运行 DeepSeek Harness 原任务，手机浏览器进入同一工作区，查看会话并继续发送要求。
 
-黑粉科技制作的独立辅助工具，当前为 **0.1.3 预览版**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
+黑粉科技制作的独立辅助工具，当前为 **0.1.4 预览版**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
 
 ## 近期新增与改进
 
-- 精简连接界面：接入会话、启动连接、手机扫码，状态清楚。
+- 平衡连接界面：左右卡片等宽，标题、主按钮和底部说明对齐，二维码展开后仍保持一致。
+- 增加国内双源公网 IPv4 检测：与国际检测源分别选择，双源失败或不一致时停止更新，避免代理出口误写。
 - 修复断开确认：取消、确认与退出键可用，更新弹窗文案独立。
 - 三种连接方式：临时链接、开放端口、阿里云动态域名＋开放端口。
 - 证书在应用外配置：开放端口只提供 HTTP 服务，继续保留配对认证。
 - 本机动态域名：替代另一台设备更新阿里云 A 记录，不接管路由器和证书。
-- 匿名使用统计：按日去重，支持在检查页关闭，不采集会话和配对资料。
-- 官网与赞助入口：侧栏查看更多自制软件，自愿扫码支持开发。
+- 匿名使用统计：按日去重，支持在检查页的“提升使用体验”偏好中关闭，不采集会话和配对资料。
+- 首页赞助入口：在连接状态区明确展示赞助提示与按钮，侧栏继续保留官网和支持入口。
 
 ## 下载与安装
 
@@ -20,21 +21,21 @@
 
 | 系统 | 安装方式 | 下载 |
 |---|---|---|
-| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.3-macos-arm64.dmg) |
-| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.3-windows-x64-setup.exe) |
-| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.3-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.3-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.3-linux-x64.rpm) |
+| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.4-macos-arm64.dmg) |
+| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.4-windows-x64-setup.exe) |
+| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.4-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.4-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.4-linux-x64.rpm) |
 
 安装件尚未完成 Apple 公证或 Windows 商业代码签名。Mac首次打开受阻时，在系统设置的“隐私与安全性”中核实来源后选择仍要打开；Windows出现SmartScreen提示时核实发行来源，再按“更多信息”继续。更新包的数字签名用于校验更新完整性，不等同于操作系统发行证书。
 
 ## 实际界面
 
-以下为0.1.3预览版Mac实际安装界面，未展示私人配对码。
+以下为0.1.4预览版Mac实际安装界面，未展示私人配对码。
 
 ![黑粉助手连接中心](screenshots/connection.png)
 
 ![端口映射设置示例，示例地址未保存](screenshots/network.png)
 
-![匿名统计设置](screenshots/privacy.png)
+![使用体验偏好与隐私说明](screenshots/privacy.png)
 
 ## 三种连接方式
 
@@ -46,7 +47,7 @@
 
 开放端口默认监听 `0.0.0.0:8767`。将路由器公网 TCP 端口映射到电脑局域网地址与监听端口，手机使用实际外部地址。外部地址可填 HTTP 或 HTTPS；HTTPS 的反向代理与证书在应用外自行配置。未填写地址时，二维码使用本机局域网地址；该地址不代表公网已连通。
 
-动态域名当前支持阿里云、IPv4、默认线路 A 记录。先点“检查解析配置”只读检查，启动时才更新，之后每五分钟同步。不会创建新记录、修改其他主机或停止原有动态域名工具。密钥留空沿用已保存值，仅存于本机私有目录。使用网络代理时，请核对检测到的出口或填写路由器公网 IPv4。自行停止其他设备对同一记录的重复更新后，可只用本机维护动态解析。
+动态域名当前支持阿里云、IPv4、默认线路 A 记录。先点“检查解析配置”只读检查，启动时才更新，之后每五分钟同步。不会创建新记录、修改其他主机或停止原有动态域名工具。密钥留空沿用已保存值，仅存于本机私有目录。检测请求固定使用 IPv4，适用于 A 记录。使用网络代理时可选择国内双源检测，先核对检测结果与路由器公网地址一致；国内模式必须两个来源均成功且一致才会更新。手动填写公网 IPv4 会固定使用该值，随公网地址变化自动更新应留空。自行停止其他设备对同一记录的重复更新后，可只用本机维护动态解析。
 
 ## 第一次使用
 
@@ -67,7 +68,7 @@
 
 二维码、链接和配对资料仅交给本人设备。配对后可操作原会话，手机浏览器应妥善保管。关闭窗口收起到菜单栏或托盘，退出界面保留后台；停止本应用连接不停止原任务。撤销登录会要求手机重新配对。
 
-匿名统计仅包含不可逆设备哈希、应用版本、系统和架构，用于统计活跃设备与版本分布；默认开启，可在“检查与帮助”关闭。不采集会话、指令、文件、密钥、配对资料或用户名，统计数据库不保存 IP。设备哈希在本机按产品隔离后生成。同一设备同一 UTC 日去重，升级当天可更新版本。
+匿名统计仅包含不可逆设备哈希、应用版本、系统和架构，用于统计活跃设备与版本分布；默认开启，可在“检查与帮助”的“提升使用体验”偏好中关闭，具体采集范围可展开隐私说明查看。不采集会话、指令、文件、密钥、配对资料或用户名，统计数据库不保存 IP。设备哈希在本机按产品隔离后生成。同一设备同一 UTC 日去重，升级当天可更新版本。
 
 源码仓库私有；本仓库发布使用说明、真实截图、安装件与更新元数据。安装件不包含开发者证书私钥、原会话、模型密钥或私人部署配置。
 
@@ -83,10 +84,10 @@
 
 ## 已核实的验收范围
 
-- Mac：从DMG安装，原生界面、断开确认、内置后端、真实Harness认证及开放端口配对通过；临时通道与实时握手另有实际验收记录。
-- Windows：原生30项检查、中文EXE安装、安装后内置后端及应用启动检查通过。
-- Linux：原生30项检查、AppImage解包后的内置后端及虚拟桌面启动检查通过；同时提供deb和rpm。
-- 阿里云动态域名：官方 SDK 签名对照与真实账户只读查询通过；更新、重复记录拒绝、不变不写与密钥保护通过隔离测试。未修改开发者生产解析记录。
+- Mac：从DMG安装，双栏布局、内置后端、真实Harness认证及第三种模式配对通过；真实网页消息、空闲后回复、刷新后登录保持通过。临时通道与断开确认另有实际验收记录。
+- Windows：原生31项检查、中文EXE安装、安装后内置后端及应用启动检查通过。
+- Linux：原生31项检查、AppImage解包后的内置后端及虚拟桌面启动检查通过；同时提供deb和rpm。
+- 阿里云动态域名：官方 SDK 签名对照与真实账户只读查询通过；更新、重复记录拒绝、不变不写与密钥保护通过隔离测试；现有环境完成真实更新与恢复、定时检查及消息收发验收。全新用户配置不依赖开发者域名、旧脚本、树莓派或证书文件。
 - 三个平台的安装件都有SHA-256；更新包另有独立数字签名。Mac和Linux AppImage支持对应的签名更新包，deb/rpm使用新版安装包更新。
 - 真实手机切网、真实任务工具批准和长任务恢复仍待专项验收；隔离启动检查不等同于真机持续使用。
 
