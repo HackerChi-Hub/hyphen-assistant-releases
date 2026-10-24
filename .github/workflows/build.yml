@@ -40,6 +40,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev librsvg2-dev libayatana-appindicator3-dev patchelf xvfb dbus-x11
       - run: npm ci
       - run: npm test
+        timeout-minutes: 5
       - run: npm run bundle:runtime
       - name: 生成应用图标
         run: npx tauri icon assets/icon.svg
