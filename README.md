@@ -2,9 +2,9 @@
 
 **手机连接电脑上的 AI。** 电脑运行 DeepSeek Harness 原任务，手机浏览器进入同一工作区，查看会话并继续发送要求。
 
-黑粉科技制作的独立辅助工具，Windows 与 Linux 当前正式安装版为 **1.0.1**，Mac 当前为 **1.0.0**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
+黑粉科技制作的独立辅助工具，三平台当前正式版为 **1.0.1**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
 
-Windows 与 Linux 可以从下方手动安装 1.0.1。Mac 1.0.1 安装包完成构建验收后补齐；在此之前，应用内自动更新仍指向三平台齐全的 1.0.0。完整图文步骤见[手机连接 DeepSeek Harness 教程](https://hyphentech.top/deepseek-harness-mobile-remote/)。
+Windows、Mac 和 Linux 均可从下方手动安装 1.0.1；已有版本可在应用内检查 1.0.1 自动更新。完整图文步骤见[手机连接 DeepSeek Harness 教程](https://hyphentech.top/deepseek-harness-mobile-remote/)。
 
 1.0.0 修复临时通道启动期间一次外网检查失败后，界面持续沿用旧状态的问题：等待阶段会自动复查，入口恢复后连接状态和二维码按钮自动更新。
 
@@ -29,11 +29,11 @@ Windows 与 Linux 可以从下方手动安装 1.0.1。Mac 1.0.1 安装包完成�
 
 通过[发行页](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)选择对应系统的安装包，并核对同名 `.sha256` 文件。没有附件的平台暂不提供下载，不使用源码压缩包代替安装包。
 
-1.0.1 的 Windows/Linux 安装包来自源码提交 `1cca335b5bb10adbc50f2b8053b2d3511f69cbdf`。Windows 53 项测试通过，安装包解压后的内置后端和原生程序启动检查通过；Linux 52 项通过、1 项 Windows 专属测试跳过，AppImage 隔离启动通过。四份 SHA-256 与两份更新签名已核对，详情见[1.0.1 发行说明](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.1)。Mac 仍使用已验收的 1.0.0；本轮未在真实 Harness 与手机网络上复测。
+1.0.1 的三平台安装包均来自源码提交 `1cca335b5bb10adbc50f2b8053b2d3511f69cbdf`。Windows 53 项测试通过，安装包解压后的内置后端和原生程序启动检查通过；Linux 52 项通过、1 项 Windows 专属测试跳过，AppImage 隔离启动通过；Mac 本机测试、签名构建和安装件启动检查通过。六份 SHA-256 与三份更新签名已核对，详情见[1.0.1 发行说明](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.1)。本轮未在真实 Harness 与手机网络上复测。
 
 | 系统 | 安装方式 | 下载 |
 |---|---|---|
-| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.0/HyphenAssistant-1.0.0-macos-arm64.dmg) |
+| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.1/HyphenAssistant-1.0.1-macos-arm64.dmg) |
 | Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.1/HyphenAssistant-1.0.1-windows-x64-setup.exe) |
 | Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.1/HyphenAssistant-1.0.1-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.1/HyphenAssistant-1.0.1-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.1/HyphenAssistant-1.0.1-linux-x64.rpm) |
 
