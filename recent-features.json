@@ -1,25 +1,25 @@
 {
-  "reviewed_version": "0.1.2",
+  "reviewed_version": "0.1.8",
   "features": [
     {
-      "title": "仅保留两种连接方式",
-      "description": "临时链接与端口映射，移除单独的已有代理选项。"
+      "title": "修复 Windows 接入",
+      "description": "识别非默认目录安装的 Harness，保留已挂载配置，并修复启动路径与本机状态目录权限。"
     },
     {
-      "title": "修复确认断开",
-      "description": "取消和确认按钮保持可用，更新确认文案独立。"
+      "title": "如实显示远程状态",
+      "description": "临时通道外网回读失败时显示未连通，暂不开放手机配对。"
     },
     {
-      "title": "显示端口映射关系",
-      "description": "外网TCP端口对应本机地址及监听端口，路由器由用户设置。"
+      "title": "三种连接方式",
+      "description": "临时链接、开放端口、动态域名加开放端口，可按现有网络条件选择。"
     },
     {
-      "title": "匿名使用统计",
-      "description": "按日去重、升级即时更新，可关闭。"
+      "title": "多平台动态域名",
+      "description": "支持阿里云、腾讯云 DNSPod 和 Cloudflare，只更新选定的 IPv4 A 记录。"
     },
     {
-      "title": "官网和自愿赞助",
-      "description": "侧栏展示官网和支持开发入口。"
+      "title": "本机配对保护",
+      "description": "配对链接一次性使用，模型与会话仍沿用原 Harness 配置。"
     }
   ]
 }
