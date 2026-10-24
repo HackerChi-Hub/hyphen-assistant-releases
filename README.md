@@ -2,16 +2,16 @@
 
 **手机连接电脑上的 AI。** 电脑运行 DeepSeek Harness 原任务，手机浏览器进入同一工作区，查看会话并继续发送要求。
 
-黑粉科技制作的独立辅助工具，当前为 **0.1.6 预览版**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
+黑粉科技制作的独立辅助工具，当前为 **0.1.7 预览版**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
 
 ## 近期新增与改进
 
 - 平衡连接界面：左右卡片等宽，标题、主按钮和底部说明对齐，二维码展开后仍保持一致。
 - 增加国内双源公网 IPv4 检测：与国际检测源分别选择，双源失败或不一致时停止更新，避免代理出口误写。
 - 修复断开确认：取消、确认与退出键可用，更新弹窗文案独立。
-- 三种连接方式：临时链接、开放端口、阿里云动态域名＋开放端口。
+- 三种连接方式：临时链接、开放端口、动态域名＋开放端口。动态解析可选阿里云、腾讯云DNSPod或Cloudflare。
 - 证书在应用外配置：开放端口只提供 HTTP 服务，继续保留配对认证。
-- 本机动态域名：替代另一台设备更新阿里云 A 记录，不接管路由器和证书。
+- 多平台动态域名：使用自己的平台凭据，每五分钟检查并更新已有A记录；支持相应密钥文件导入，不接管路由器和证书。
 - 匿名使用统计：按日去重，支持在检查页的“提升使用体验”偏好中关闭，不采集会话和配对资料。
 - 首页赞助入口：在连接状态区明确展示赞助提示与按钮，侧栏仅保留本机保存提示、版本及官网，避免重复展示赞助。
 
@@ -21,19 +21,21 @@
 
 | 系统 | 安装方式 | 下载 |
 |---|---|---|
-| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.6-macos-arm64.dmg) |
-| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.6-windows-x64-setup.exe) |
-| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.6-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.6-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.6-linux-x64.rpm) |
+| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.7-macos-arm64.dmg) |
+| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.7-windows-x64-setup.exe) |
+| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.7-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.7-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.7-linux-x64.rpm) |
 
 安装件尚未完成 Apple 公证或 Windows 商业代码签名。Mac首次打开受阻时，在系统设置的“隐私与安全性”中核实来源后选择仍要打开；Windows出现SmartScreen提示时核实发行来源，再按“更多信息”继续。更新包的数字签名用于校验更新完整性，不等同于操作系统发行证书。
 
 ## 实际界面
 
-以下为Mac实际安装界面，未展示私人配对码。域名示例用于说明配置。
+连接中心和隐私页为Mac安装界面；多平台表单为使用最终前端与安装版后端的隔离演示，使用虚构域名和测试凭据，未访问真实云账户。图片不含私人配对码。
 
 ![黑粉助手连接中心](screenshots/connection.png)
 
-![端口映射设置示例，示例地址未保存](screenshots/network.png)
+![Cloudflare动态域名表单，隔离演示](screenshots/network.png)
+
+![腾讯云DNSPod表单，隔离演示](screenshots/network-tencent.png)
 
 ![使用体验偏好与隐私说明](screenshots/privacy.png)
 
@@ -43,11 +45,11 @@
 |---|---|---|
 | 临时链接 | 启动后生成临时地址，再扫码配对 | 网络能访问内置通道服务 |
 | 开放端口 | 监听指定地址与端口，提供带配对认证的 HTTP 入口 | 自行安排端口映射、访问地址、外部代理与证书 |
-| 动态域名＋开放端口 | 在开放端口基础上，每五分钟检查并更新阿里云已有的单条 A 记录 | 阿里云根域名、唯一默认线路 A 记录、最小权限访问密钥，以及自行配置的端口映射 |
+| 动态域名＋开放端口 | 在开放端口基础上，每五分钟检查并更新所选平台已有的单条A记录 | 对应平台管理的域名、唯一A记录、最小权限凭据，以及自行配置的端口映射 |
 
 开放端口默认监听 `0.0.0.0:8767`。将路由器公网 TCP 端口映射到电脑局域网地址与监听端口，手机使用实际外部地址。外部地址可填 HTTP 或 HTTPS；HTTPS 的反向代理与证书在应用外自行配置。未填写地址时，二维码使用本机局域网地址；该地址不代表公网已连通。
 
-动态域名当前支持阿里云、IPv4、默认线路 A 记录。先点“检查解析配置”只读检查，启动时才更新，之后每五分钟同步。不会创建新记录、修改其他主机或停止原有动态域名工具。密钥留空沿用已保存值，仅存于本机私有目录。检测请求固定使用 IPv4，适用于 A 记录。使用网络代理时可选择国内双源检测，先核对检测结果与路由器公网地址一致；国内模式必须两个来源均成功且一致才会更新。手动填写公网 IPv4 会固定使用该值，随公网地址变化自动更新应留空。自行停止其他设备对同一记录的重复更新后，可只用本机维护动态解析。
+动态域名支持阿里云、腾讯云DNSPod和Cloudflare的IPv4 A记录。阿里云及腾讯云选择默认线路，Cloudflare要求主机名下只有一条A记录。先点“检查解析配置”只读检查，启动时才更新，之后每五分钟同步。不会创建新记录、修改其他主机或停止原有动态域名工具。密钥留空沿用已保存值，仅存于本机私有目录。检测请求固定使用 IPv4，适用于 A 记录。使用网络代理时可选择国内双源检测，先核对检测结果与路由器公网地址一致；国内模式必须两个来源均成功且一致才会更新。手动填写公网 IPv4 会固定使用该值，随公网地址变化自动更新应留空。自行停止其他设备对同一记录的重复更新后，可只用本机维护动态解析。
 
 ## 第一次使用
 
@@ -82,11 +84,11 @@
 
 **手机切网和长任务是否都可靠？** 以当前发行说明列出的实际验收为准，一次页面打开不代表所有场景均已通过。
 
-## 已核实的验收范围
+## 既有功能验收记录
 
 - Mac：从DMG安装，双栏布局、内置后端、真实Harness认证及第三种模式配对通过；真实网页消息、空闲后回复、刷新后登录保持通过。临时通道与断开确认另有实际验收记录。
-- Windows：原生33项检查、中文EXE安装、安装后内置后端及应用启动检查通过。
-- Linux：原生33项检查、AppImage解包后的内置后端及虚拟桌面启动检查通过；同时提供deb和rpm。
+- Windows：原生41项检查、中文EXE安装、安装后内置后端及应用启动检查通过。
+- Linux：原生41项检查、AppImage解包后的内置后端及虚拟桌面启动检查通过；同时提供deb和rpm。
 - 阿里云动态域名：官方 SDK 签名对照与真实账户只读查询通过；更新、重复记录拒绝、不变不写与密钥保护通过隔离测试；现有环境完成真实更新与恢复、定时检查及消息收发验收。全新用户配置不依赖开发者域名、旧脚本、树莓派或证书文件。
 - 三个平台的安装件都有SHA-256；更新包另有独立数字签名。Mac和Linux AppImage支持对应的签名更新包，deb/rpm使用新版安装包更新。
 - 真实手机切网、真实任务工具批准和长任务恢复仍待专项验收；隔离启动检查不等同于真机持续使用。
@@ -97,21 +99,44 @@
 - [Cloudflare 临时通道说明](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/)
 - [黑粉科技](https://hyphentech.top)
 
-## 密钥导入与清除
+## 解析平台与密钥文件
 
-应用内动态域名自动更新目前仅支持阿里云IPv4 A记录。其他域名平台可使用“开放端口”，解析、动态更新、代理与证书由用户在外部配置。
+在“动态域名＋开放端口”中选择解析平台。域名必须由所选解析平台管理；域名在哪里买不影响这一判断。本机只保存当前使用的平台配置，切换后需填写该平台的凭据，不会混用上一平台的密钥。
 
-连接运行时，点击“停止连接并修改配置”后可编辑。输入新密钥时须同时填写两项；留空保留已存值。点击“清除已保存密钥”仅清除本机阿里云密钥及旧检查状态，保留域名、监听参数、云端解析和外部证书。清除后必须重新填写或导入并保存，才能启动动态域名连接。
+| 平台 | 凭据 | 导入格式 | 权限与范围 |
+|---|---|---|---|
+| 阿里云 | AccessKey ID、AccessKey Secret | CSV或JSON | 选定域名的查询记录及修改解析权限 |
+| 腾讯云 DNSPod | SecretId、SecretKey | CSV或JSON | DescribeRecordList、ModifyDynamicDNS；使用腾讯云API密钥，不使用旧DNSPod ID/Token |
+| Cloudflare | API Token；区域ID选填 | CSV、JSON或仅含令牌的TXT | 选定区域DNS读取与编辑；自动查询区域需区域读取权限，手填区域ID可免去区域查询 |
 
-可导入仅包含一对密钥的CSV或JSON文本文件，最多64KB。导入只填入当前表单，内容隐藏，点击保存后才写入本机。错误文件或多个账户不会覆盖已有输入。原文件不上传、不复制到应用目录；请自行妥善保存或清理原文件。
+Cloudflare已有的代理开关、缓存时间及其他记录属性保持。若使用19527等自定义外网端口，需在Cloudflare控制台自行核对代理设置；标准代理支持的端口以[官方端口说明](https://developers.cloudflare.com/fundamentals/reference/network-ports/)为准。只用域名解析时，可自行设置为仅DNS。应用不会自动切换代理或修改证书。
 
-CSV表头为 `AccessKey ID,AccessKey Secret`，下一行填写自己的一对密钥。JSON格式如下：
+连接运行时，点击“停止连接并修改配置”后可编辑。更换成对密钥须同时填写两项；留空保留当前平台已存值。点击“清除已保存密钥”只清除本机凭据及旧检查状态，保留域名、监听参数、云端解析和外部证书。清除后需重新填写或导入并保存，才能启动动态域名连接。
+
+导入文件最多64KB，一次仅允许一组凭据。导入只填入当前表单，内容隐藏，点击保存后才写入本机。格式错误、多个账户、重复字段或跨平台凭据会被拒绝，不覆盖已有输入。原文件不上传、不复制到应用目录，请自行妥善保存。证书文件、Cloudflare Global API Key和旧DNSPod令牌不属于此导入格式；暂不支持STS临时凭据。
+
+CSV表头分别使用 `AccessKey ID,AccessKey Secret`、`SecretId,SecretKey` 或 `APIToken,ZoneId`。Cloudflare的ZoneId列可留空。JSON示例中的值均须换成自己的真实凭据：
 
 ```json
-{
-  "AccessKeyId": "你的访问密钥标识",
-  "AccessKeySecret": "你的访问密钥"
-}
+{"provider":"aliyun","AccessKeyId":"自己的密钥标识","AccessKeySecret":"自己的访问密钥"}
 ```
 
-支持阿里云密钥字段；其他平台的令牌或证书文件不能用于此导入。
+```json
+{"provider":"tencent","SecretId":"自己的密钥标识","SecretKey":"自己的访问密钥"}
+```
+
+```json
+{"provider":"cloudflare","apiToken":"自己的接口令牌"}
+```
+
+Cloudflare的TXT文件只放令牌，不加引号或其他文字。阿里云旧配置会自动按阿里云识别，升级不要求重新填写原密钥。
+
+## 本版多平台验收
+
+- 每个平台操作系统通过41项检查，安装后内置后端及原生程序启动通过。
+- 腾讯云签名与官方SDK 4.1.220四组向量一致，覆盖中文载荷、分页、UTC日期边界；阿里云签名再次对照官方SDK通过。
+- 用最终Mac安装版的内置Node和后端，在三个全新用户目录验证：自有域名与端口配置、模拟查询和更新、只读检查、不变不写、错误保存保护、清除凭据与快照不泄密。
+- 使用最终前端和安装版后端的隔离界面，验证腾讯云CSV、Cloudflare JSON导入保存、跨平台误导入拒绝、切换后不沿用密钥与确认清除。
+- 新增腾讯云和Cloudflare按用户要求使用模拟接口验收，没有执行真实云账户的DNS写入。真实账户的权限、套餐、网络与解析生效仍须由使用者通过“检查解析配置”和实际手机访问核实。不能把模拟成功理解为对所有账户环境的保证。
+
+接口对照：[腾讯云查询记录](https://cloud.tencent.com/document/api/1427/56166)、[腾讯云动态更新](https://cloud.tencent.com/document/api/1427/56158)、[Cloudflare更新记录](https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/edit/)。
