@@ -2,14 +2,15 @@
 
 **手机连接电脑上的 AI。** 电脑运行 DeepSeek Harness 原任务，手机浏览器进入同一工作区，查看会话并继续发送要求。
 
-黑粉科技制作的独立辅助工具，当前正式版为 **0.1.8**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
+黑粉科技制作的独立辅助工具，当前正式版为 **1.0.0**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
 
-已有版本可在应用内检查 0.1.8 自动更新，也可从下方下载并手动安装。完整图文步骤见[手机连接 DeepSeek Harness 教程](https://hyphentech.top/deepseek-harness-mobile-remote/)。
+已有版本可在应用内检查 1.0.0 自动更新，也可从下方下载并手动安装。完整图文步骤见[手机连接 DeepSeek Harness 教程](https://hyphentech.top/deepseek-harness-mobile-remote/)。
 
-**1.0.0 手动安装预览版已开放下载：**[Windows EXE、Linux AppImage / deb / rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.0)。本版修复临时通道启动期间一次外网检查失败后，界面持续沿用旧状态的问题。Windows 和 Linux 安装件已通过对应系统的本机测试及隔离启动检查；Mac 安装包和三平台自动更新签名仍在制作中，因此当前正式版和应用内更新入口仍为 0.1.8。
+1.0.0 修复临时通道启动期间一次外网检查失败后，界面持续沿用旧状态的问题：等待阶段会自动复查，入口恢复后连接状态和二维码按钮自动更新。
 
 ## 近期新增与改进
 
+- 修复临时通道等待阶段的旧状态沿用，并自动复查外网入口。
 - 修复 Windows 启动检查卡住、非默认安装目录的 Harness 未被识别，以及已挂载配置在界面中跳回“重新选择”的问题。
 - 临时通道启动后实际回读外网入口；若入口未连通，首页显示失败状态并暂不生成配对二维码。本机 Harness 接入状态单独显示。
 - 平衡连接界面：左右卡片等宽，标题、主按钮和底部说明对齐，二维码展开后仍保持一致。
@@ -25,13 +26,13 @@
 
 通过[发行页](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)选择对应系统的安装包，并核对同名 `.sha256` 文件。没有附件的平台暂不提供下载，不使用源码压缩包代替安装包。
 
-0.1.8 的六个安装包与三个自动更新包均来自源码提交 `89abb4f76280e769130da64e465d309e3d38d0b4`。Windows 43 项测试通过，并在当前 Windows 用户的隔离目录实际运行新安装器、启动后端和原生应用；Linux 42 项通过，AppImage 隔离启动通过；Mac 42 项通过，本机签名构建和隔离启动通过。六份 SHA-256 与三份更新签名已核对，详情见[0.1.8 发行说明](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.8)。本轮未在干净 Windows 用户下测试首次安装，也未对真实 Harness 手机收发重新验收。
+1.0.0 的六个安装包与三个自动更新包均来自源码提交 `2dfd0fed5adee84d5e1cf2ec20596bfa9319af9a`。Windows 52 项测试通过，并在当前 Windows 用户的隔离目录实际运行新安装器、启动后端和原生应用；Linux 51 项通过、1 项 Windows 专属测试跳过，AppImage 隔离启动通过；Mac 51 项通过、1 项 Windows 专属测试跳过，本机签名构建和隔离启动通过。六份 SHA-256 与三份更新签名已核对，详情见[1.0.0 发行说明](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.0)。本轮未在干净 Windows 用户下测试首次安装，也未对真实 Harness 手机收发重新验收。
 
 | 系统 | 安装方式 | 下载 |
 |---|---|---|
-| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.8/HyphenAssistant-0.1.8-macos-arm64.dmg) |
-| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.8/HyphenAssistant-0.1.8-windows-x64-setup.exe) |
-| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.8/HyphenAssistant-0.1.8-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.8/HyphenAssistant-0.1.8-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.8/HyphenAssistant-0.1.8-linux-x64.rpm) |
+| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.0/HyphenAssistant-1.0.0-macos-arm64.dmg) |
+| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.0/HyphenAssistant-1.0.0-windows-x64-setup.exe) |
+| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.0/HyphenAssistant-1.0.0-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.0/HyphenAssistant-1.0.0-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.0/HyphenAssistant-1.0.0-linux-x64.rpm) |
 
 安装件尚未完成 Apple 公证或 Windows 商业代码签名。Mac首次打开受阻时，在系统设置的“隐私与安全性”中核实来源后选择仍要打开；Windows出现SmartScreen提示时核实发行来源，再按“更多信息”继续。更新包的数字签名用于校验更新完整性，不等同于操作系统发行证书。
 
@@ -88,7 +89,7 @@
 
 **临时连接失败？** 检查网络可达性，稍后重试或改用端口映射。不要关闭来源校验、证书校验或配对保护。
 
-**配置选过又跳回选择框？** 更新到 0.1.8 后，已挂载的配置会显示“连接器已挂载”。先打开 Harness，再刷新状态；另一份配置不能直接覆盖当前已管理的配置。
+**配置选过又跳回选择框？** 更新到当前版本后，已挂载的配置会显示“连接器已挂载”。先打开 Harness，再刷新状态；另一份配置不能直接覆盖当前已管理的配置。
 
 **电脑已接入，远程入口却显示未连通？** 在“检查与帮助”点击“检查实际连接”，看外网回读状态。临时通道依赖本机到 Cloudflare 的网络；网络代理或 TUN 设置可能影响连接。入口未通过回读时，先处理网络，再刷新并生成配对二维码。
 
