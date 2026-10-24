@@ -2,7 +2,7 @@
 
 **手机连接电脑上的 AI。** 电脑运行 DeepSeek Harness 原任务，手机浏览器进入同一工作区，查看会话并继续发送要求。
 
-黑粉科技制作的独立辅助工具，当前为 **0.1.5 预览版**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
+黑粉科技制作的独立辅助工具，当前为 **0.1.6 预览版**。官方 Harness 是被连接的目标软件，需要先在电脑上安装、配置好模型并能正常使用。黑粉助手内置自己的运行依赖，无需另外安装 Node.js、通道程序或二维码组件。
 
 ## 近期新增与改进
 
@@ -21,15 +21,15 @@
 
 | 系统 | 安装方式 | 下载 |
 |---|---|---|
-| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.5-macos-arm64.dmg) |
-| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.5-windows-x64-setup.exe) |
-| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.5-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.5-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.5-linux-x64.rpm) |
+| macOS Apple Silicon，13及以上 | 下载DMG，把黑粉助手拖入应用程序 | [Mac安装包](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.6-macos-arm64.dmg) |
+| Windows x64 | 下载EXE安装程序，按向导安装；包含离线WebView2安装器 | [Windows安装程序](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.6-windows-x64-setup.exe) |
+| Linux x64 | 使用AppImage或适合发行版的deb/rpm包，仍需兼容的桌面系统；AppImage首次需在文件属性中允许作为程序执行 | [AppImage](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.6-linux-x64.AppImage) · [deb](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.6-linux-x64.deb) · [rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest/download/HyphenAssistant-0.1.6-linux-x64.rpm) |
 
 安装件尚未完成 Apple 公证或 Windows 商业代码签名。Mac首次打开受阻时，在系统设置的“隐私与安全性”中核实来源后选择仍要打开；Windows出现SmartScreen提示时核实发行来源，再按“更多信息”继续。更新包的数字签名用于校验更新完整性，不等同于操作系统发行证书。
 
 ## 实际界面
 
-以下为Mac实际安装界面，连接中心及密钥提示已更新至0.1.5。域名示例未保存，未展示私人配对码。
+以下为Mac实际安装界面，未展示私人配对码。域名示例用于说明配置。
 
 ![黑粉助手连接中心](screenshots/connection.png)
 
@@ -85,8 +85,8 @@
 ## 已核实的验收范围
 
 - Mac：从DMG安装，双栏布局、内置后端、真实Harness认证及第三种模式配对通过；真实网页消息、空闲后回复、刷新后登录保持通过。临时通道与断开确认另有实际验收记录。
-- Windows：原生31项检查、中文EXE安装、安装后内置后端及应用启动检查通过。
-- Linux：原生31项检查、AppImage解包后的内置后端及虚拟桌面启动检查通过；同时提供deb和rpm。
+- Windows：原生33项检查、中文EXE安装、安装后内置后端及应用启动检查通过。
+- Linux：原生33项检查、AppImage解包后的内置后端及虚拟桌面启动检查通过；同时提供deb和rpm。
 - 阿里云动态域名：官方 SDK 签名对照与真实账户只读查询通过；更新、重复记录拒绝、不变不写与密钥保护通过隔离测试；现有环境完成真实更新与恢复、定时检查及消息收发验收。全新用户配置不依赖开发者域名、旧脚本、树莓派或证书文件。
 - 三个平台的安装件都有SHA-256；更新包另有独立数字签名。Mac和Linux AppImage支持对应的签名更新包，deb/rpm使用新版安装包更新。
 - 真实手机切网、真实任务工具批准和长任务恢复仍待专项验收；隔离启动检查不等同于真机持续使用。
@@ -96,3 +96,22 @@
 - [官方 DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)
 - [Cloudflare 临时通道说明](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/)
 - [黑粉科技](https://hyphentech.top)
+
+## 密钥导入与清除
+
+应用内动态域名自动更新目前仅支持阿里云IPv4 A记录。其他域名平台可使用“开放端口”，解析、动态更新、代理与证书由用户在外部配置。
+
+连接运行时，点击“停止连接并修改配置”后可编辑。输入新密钥时须同时填写两项；留空保留已存值。点击“清除已保存密钥”仅清除本机阿里云密钥及旧检查状态，保留域名、监听参数、云端解析和外部证书。清除后必须重新填写或导入并保存，才能启动动态域名连接。
+
+可导入仅包含一对密钥的CSV或JSON文本文件，最多64KB。导入只填入当前表单，内容隐藏，点击保存后才写入本机。错误文件或多个账户不会覆盖已有输入。原文件不上传、不复制到应用目录；请自行妥善保存或清理原文件。
+
+CSV表头为 `AccessKey ID,AccessKey Secret`，下一行填写自己的一对密钥。JSON格式如下：
+
+```json
+{
+  "AccessKeyId": "你的访问密钥标识",
+  "AccessKeySecret": "你的访问密钥"
+}
+```
+
+支持阿里云密钥字段；其他平台的令牌或证书文件不能用于此导入。
