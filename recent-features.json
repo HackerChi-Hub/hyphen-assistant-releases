@@ -1,6 +1,10 @@
 {
-  "reviewed_version": "0.1.8",
+  "reviewed_version": "1.0.1",
   "features": [
+    {
+      "title": "二维码在本机生成",
+      "description": "开放端口与动态域名模式不再因电脑回读自身外网地址失败而锁住二维码；手机入口仍需用移动网络实测。"
+    },
     {
       "title": "修复 Windows 接入",
       "description": "识别非默认目录安装的 Harness，保留已挂载配置，并修复启动路径与本机状态目录权限。"
