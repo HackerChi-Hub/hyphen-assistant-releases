@@ -6,6 +6,8 @@
 
 已有版本可在应用内检查 0.1.8 自动更新，也可从下方下载并手动安装。完整图文步骤见[手机连接 DeepSeek Harness 教程](https://hyphentech.top/deepseek-harness-mobile-remote/)。
 
+**1.0.0 手动安装预览版已开放下载：**[Windows EXE、Linux AppImage / deb / rpm](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.0)。本版修复临时通道启动期间一次外网检查失败后，界面持续沿用旧状态的问题。Windows 和 Linux 安装件已通过对应系统的本机测试及隔离启动检查；Mac 安装包和三平台自动更新签名仍在制作中，因此当前正式版和应用内更新入口仍为 0.1.8。
+
 ## 近期新增与改进
 
 - 修复 Windows 启动检查卡住、非默认安装目录的 Harness 未被识别，以及已挂载配置在界面中跳回“重新选择”的问题。
